@@ -1,0 +1,10 @@
+{
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.tabSize": 2,
+    "files.autoSave": "onWindowChange",
+    "editor.rulers": [
+        120
+    ],
+}
