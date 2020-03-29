@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
+// import { Subject } from 'rxjs';
 
-async function fetchJSON(url) {
-  const r = await fetch(url);
-  const json = await r.json();
-  console.log(json);
-  return json;
-}
+// async function fetchJSON(url) {
+//   const r = await fetch(url);
+//   const json = await r.json();
+//   console.log(json);
+//   return json;
+// }
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent {
 
 
   constructor() {
-    fetchJSON('http://data.gov.ua/dataset/8851831d-b5ce-4ca8-8685-eafbc3f57eca/resource/6cfff17e-84ac-4141-b0fd-89abb68e9f31/download/mvswantedbezvesti_1.json'); 
+    // fetchJSON('http://data.gov.ua/dataset/8851831d-b5ce-4ca8-8685-eafbc3f57eca/resource/6cfff17e-84ac-4141-b0fd-89abb68e9f31/download/mvswantedbezvesti_1.json'); 
   }
 
 }
