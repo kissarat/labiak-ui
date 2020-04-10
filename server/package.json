@@ -9,6 +9,9 @@
   },
   "author": "Taras Labiak <kissarat@gmail.com>",
   "license": "AGPL-3.0-or-later",
+  "paths": [
+    "./src"
+  ],
   "dependencies": {
     "express": "^4.17.1",
     "fastify": "^2.13.0",
