@@ -1,11 +1,11 @@
-const fastify = require('fastify');
-const router = require('routes');
-const websocket = require('middleware/websocket');
+import fastify from 'fastify';
+import { router } from './routes/index.js';
+// import websocket from './middleware/websocket';
 const app = fastify({
   logger: true
 });
 
-websocket(app);
+// websocket(app);
 app.use('/api/v1', router);
 app.get('/', (req, res) => res.redirect('/api/v1/healthcheck'))
 

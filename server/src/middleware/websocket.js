@@ -1,4 +1,4 @@
-const FastifyWebsocket = require('fastify-websocket');
+import FastifyWebsocket from 'fastify-websocket';
 
 function handle(conn) {
   // conn.pipe(conn);
@@ -8,7 +8,7 @@ function handle(conn) {
   })
 }
 
-module.exports = app => {
+const websoket = app => {
   app.register(FastifyWebsocket, {
     handle,
     options: {
@@ -16,3 +16,5 @@ module.exports = app => {
     }
   });
 }
+
+export { websocket };

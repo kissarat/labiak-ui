@@ -1,4 +1,5 @@
-const express = require('express');
+import express from 'express';
+
 const router = express.Router();
 
 const app = express();
@@ -18,4 +19,4 @@ router.get('/healthcheck', (req, res) => {
   });
 });
 
-module.exports = router;
+export { router };
