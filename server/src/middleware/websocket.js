@@ -1,4 +1,4 @@
-import FastifyWebsocket from 'fastify-websocket';
+const FastifyWebsocket = require('fastify-websocket');
 
 function handle(conn) {
   // conn.pipe(conn);
@@ -17,4 +17,4 @@ const websoket = app => {
   });
 }
 
-export { websocket };
+module.exports = websoket;

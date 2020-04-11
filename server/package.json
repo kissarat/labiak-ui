@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Labiak backend",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,9 +13,10 @@
     "./src"
   ],
   "dependencies": {
-    "bookshelf": "^1.1.1",
     "express": "^4.17.1",
     "fastify": "^2.13.0",
-    "fastify-websocket": "^1.1.2"
+    "fastify-websocket": "^1.1.2",
+    "knex": "^0.20.13",
+    "pg": "^8.0.2"
   }
 }

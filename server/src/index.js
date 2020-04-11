@@ -1,5 +1,5 @@
-import fastify from 'fastify';
-import { router } from './routes/index.js';
+const fastify = require('fastify');
+const router = require('./routes/index.js');
 // import websocket from './middleware/websocket';
 const app = fastify({
   logger: true
