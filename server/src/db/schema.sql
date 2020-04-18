@@ -54,24 +54,29 @@ create table "ParamValue" (
   "name" varchar(200) not null
 );
 
-create table "Shop" (
-  "shopId" bigserial primary key,
-  "name" varchar(200) not null,
-  "company" varchar(200) not null
-);
+-- create table "Shop" (
+--   "shopId" bigserial primary key,
+--   "name" varchar(200) not null,
+--   "company" varchar(200) not null
+-- );
+
+-- insert into "Shop"("name", "company") values ('Labiak Shop', 'Labiak Inc.');
 
 create table "Offer" (
   "offerId" bigserial primary key,
-  "shopId" int not null references "Shop"("shopId"),
+  -- "shopId" int not null references "Shop"("shopId"),
   "available" boolean not null default false,
   "name" varchar(200) not null,
   "description" text,
   "price" decimal not null,
-  "currenyId" char(3) not null references "Currency"("currencyId"),
+  "currencyId" char(3) not null references "Currency"("currencyId"),
   "quantity" int not null default 1,
   "createdAt" timestamp not null default current_timestamp,
   "updatedAt" timestamp not null default current_timestamp
 );
+
+insert into "Offer"("name", "currencyId", "price")
+  values ('Диван', 'UAH', 5500.50);
 
 create table "OfferParam" (
   "offerId" bigint not null,

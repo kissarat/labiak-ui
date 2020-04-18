@@ -1,5 +1,6 @@
 const express = require('express');
 const currencyRouter = require('./currency');
+const offerRouter = require('./offer');
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.get('/healthcheck', (req, res) => {
 });
 
 router.use(currencyRouter);
+router.use(offerRouter);
 
 module.exports = router;
