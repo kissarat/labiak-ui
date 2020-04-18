@@ -11,12 +11,12 @@ async function main() {
   const currencies = (await db.table('Currency')).map(timestamps());
   let lastUpdatedAt = 0;
   for (const currency of currencies) {
-    lastUpdatedAt = Math.max(lastUpdatedAt, currency.updatedAt.getTime());
+    lastUpdatedAt = Math.max(lastUpdatedAt, currency.at.getTime());
   }
   const newCurrencies = [];
   const updateCurrencyPromises = [];
-  const updatedAt = new Date(data.date);
-  if (updatedAt.getTime() > lastUpdatedAt) {
+  const at = new Date(data.date);
+  if (at.getTime() > lastUpdatedAt) {
     for(const org of data.organizations) {
       if (org.title === bankTitle) {
         for(const currencyId in org.currencies) {
@@ -25,21 +25,14 @@ async function main() {
           if (currency) {
             if (!(currency.ask === ask && currency.bid === bid)) {
               updateCurrencyPromises.push(
-                (async function() {
-                  await db.table('Currency')
+                db.table('Currency')
                     .where({ currencyId })
-                    .update({ ask, bid, updatedAt });
-                  await db.table('CurrencyHistory').insert({
-                    currencyId,
-                    ask: currency.ask,
-                    bid: currency.bid,
-                    at: currency.at,
-                  });
-                })()
+                    .update({ ask, bid, at })
+                    .then(() => db.table('CurrencyHistory').insert(currency))
               );
             }
           } else {
-            newCurrencies.push({ currencyId, ask, bid, updatedAt });
+            newCurrencies.push({ currencyId, ask, bid, at });
           }
         }
         break;

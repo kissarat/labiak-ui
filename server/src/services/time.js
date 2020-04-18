@@ -4,7 +4,7 @@ function timeout(duration) {
   });
 }
 
-const timestamps = (names = ['updatedAt']) => source => {
+const timestamps = (names = ['at']) => source => {
   const target = { ...source };
   for(const name of names) {
     target[name] = new Date(source[name]);
