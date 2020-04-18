@@ -1,4 +1,5 @@
 const express = require('express');
+const currencyRouter = require('./currency');
 
 const router = express.Router();
 
@@ -18,5 +19,7 @@ router.get('/healthcheck', (req, res) => {
     ip: req.ip
   });
 });
+
+router.use(currencyRouter);
 
 module.exports = router;
