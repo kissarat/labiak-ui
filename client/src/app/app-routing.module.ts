@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
-import { OfferListComponent } from './system/offer-list/offer-list.component';
+import { OfferListComponent } from './system/offer/list/offer-list.component';
 import { isDebug } from 'src/constants';
 import { MaintenanceComponent } from './system/maintenance/maintenance.component';
 

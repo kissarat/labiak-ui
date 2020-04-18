@@ -2,7 +2,7 @@
   <h1>Список товаров</h1>
   <ul>
     <li>
-      <a [routerLink]="['offer', offer.offerId]" *ngFor="let offer of offers">
+      <a [routerLink]="['/', 'offer', offer.offerId]" *ngFor="let offer of offers">
         {{ offer.name }}
       </a>
     </li>

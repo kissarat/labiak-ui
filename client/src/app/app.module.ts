@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OfferListModule } from './system/offer-list/offer-list.module';
 import { RouterModule } from '@angular/router';
+import { OfferModule } from './system/offer/offer.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    OfferListModule,
+    OfferModule,
     AppRoutingModule,
     RouterModule,
     BrowserModule
