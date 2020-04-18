@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { Offer } from 'src/app/interfaces/offer.interface';
+import { IOffer } from 'src/app/interfaces/offer/offer.interface';
 import { OfferService } from '../../services/offer.service';
 
 @Component({
@@ -7,13 +7,13 @@ import { OfferService } from '../../services/offer.service';
   templateUrl: './offer-list.component.html'
 })
 export class OfferListComponent implements OnInit {
-  public offers: Offer[] = [];
+  public offers: IOffer[] = [];
 
   constructor(private offerService: OfferService) {
   }
 
   async ngOnInit(): Promise<void> {
-    const { data } = await this.offerService.list().toPromise();
+    const { data } = await this.offerService.fetch().toPromise();
     this.offers = data;
   }
 }

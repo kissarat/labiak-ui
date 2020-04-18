@@ -1,10 +1,10 @@
 import { RepositoryService } from './repository.service';
-import { Offer } from 'src/app/interfaces/offer.interface';
+import { IOffer } from 'src/app/interfaces/offer/offer.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class OfferService extends RepositoryService<Offer> {
+export class OfferService extends RepositoryService<IOffer> {
   constructor(http: HttpClient) {
     super(http);
   };

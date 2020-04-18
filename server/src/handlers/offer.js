@@ -3,7 +3,10 @@ const { Success } = require('../services/response');
 
 module.exports = {
   async list(req, res) {
-    const offers = await db.table('Offer').orderBy('offerId');
+    const offers = await db
+      .table('Offer')
+      .where(req.query)
+      .orderBy('offerId');
     res.json(new Success(offers));
   },
 

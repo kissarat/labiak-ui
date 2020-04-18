@@ -4,9 +4,10 @@ import { OfferService } from '../services/offer.service';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { OfferEditComponent } from './edit/offer-edit.component';
 
 @NgModule({
-  declarations: [OfferListComponent],
+  declarations: [OfferListComponent, OfferEditComponent],
   providers: [OfferService],
   imports: [RouterModule, HttpClientModule, BrowserModule],
 })

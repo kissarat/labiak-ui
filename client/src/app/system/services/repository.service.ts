@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Success } from 'src/app/interfaces/success';
 import { Observable } from 'rxjs';
+import { OfferCriteria } from 'src/app/interfaces/offer/offer.criteria';
 
 export abstract class RepositoryService<Model> {
   get origin(): string {
@@ -18,8 +19,8 @@ export abstract class RepositoryService<Model> {
   constructor(protected http: HttpClient) {
   }
 
-  public list(): Observable<Success<Model>> {
-    return this.http.get<Success<Model>>(`${this.prefix}s`);
+  public fetch(params: {[name: string]: string} = {}): Observable<Success<Model>> {
+    return this.http.get<Success<Model>>(`${this.prefix}s`, { params });
   }
 
   create(data: Model) {
