@@ -1,6 +1,6 @@
 const knex = require('knex');
 
-const db = Knex({
+const db = knex({
   client: "pg",
   connection: {
     host: process.env.DB_HOST || "127.0.0.1",

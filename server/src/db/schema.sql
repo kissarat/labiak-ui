@@ -25,3 +25,18 @@ create view "UrlString" as
   select r."requestId", "number", "times", 'https://' || "host" || "path" as "url" from "Request" r
   join "Url" uri on r."urlId" = uri."urlId"
   join "Origin" o on uri."originId" = o."originId";
+
+create table "Currency" (
+  "currencyId" char(3) primary key,
+  "ask" decimal not null,
+  "bid" decimal not null,
+  "updatedAt" timestamp not null default current_timestamp
+);
+
+create table "CurrencyHistory" (
+  "CurrencyHistoryId" bigserial primary key,
+  "currencyId" char(3) not null,
+  "ask" decimal not null,
+  "bid" decimal not null,
+  "at" timestamp not null default current_timestamp
+);
