@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    const ws = new WebSocket('ws://localhost:3000/api/v1/websocket');
-    ws.addEventListener('open', () => {
-      ws.send('Hello');
-    })
+    // const ws = new WebSocket('ws://localhost:3000/api/v1/websocket');
+    // ws.addEventListener('open', () => {
+    //   ws.send('Hello');
+    // })
   }
 }
