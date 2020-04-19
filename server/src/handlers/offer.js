@@ -32,9 +32,7 @@ module.exports = {
   },
 
   async delete(req, res) {
-    await db.table('Offer')
-      .where({ offerId: req.offerId })
-      .del(data);
+    await db.table('Offer').where({ offerId: req.params.offerId }).del();
     res
       .status(204)
       .json({ ok: 1 });

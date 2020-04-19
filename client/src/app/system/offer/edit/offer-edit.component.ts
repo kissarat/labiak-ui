@@ -11,7 +11,7 @@ import { OfferService } from '../../services/offer.service';
   templateUrl: './offer-edit.component.html'
 })
 export class OfferEditComponent implements OnInit {
-  private offerId = 0;
+  private offerId = '0';
   fetch = new Subject<string>();
   createSubject = new Subject<IOffer>();
   updateSubject = new Subject<IOffer>();
@@ -25,7 +25,7 @@ export class OfferEditComponent implements OnInit {
   ) {}
 
   public setForm(offer: IOffer = new Offer()) {
-    if (offer.offerId > 0) {
+    if (+offer.offerId > 0) {
       this.offerId = offer.offerId;
     }
     this.form.setValue({
@@ -80,7 +80,7 @@ export class OfferEditComponent implements OnInit {
   }
 
   public submit() {
-    if (this.offerId > 0) {
+    if (+this.offerId > 0) {
       this.updateSubject.next(this.form.getRawValue());
     } else {
       this.createSubject.next(this.form.getRawValue());

@@ -1,7 +1,7 @@
 import { Currency } from '../../currency';
 
 export interface IOffer {
-  offerId?: number;
+  offerId?: string;
   available: boolean;
   name: string;
   description?: string;
@@ -11,7 +11,7 @@ export interface IOffer {
 }
 
 export class Offer implements IOffer {
-  offerId: 0;
+  offerId: string;
   available = false;
   name = '';
   description = '';

@@ -6,6 +6,7 @@
       <a [routerLink]="['/', 'offer', offer.offerId]">
         {{ offer.name }}
       </a>
+      <button type="button" (click)="delete(offer)">Удалить</button>
     </li>
   </ul>
 </article>
