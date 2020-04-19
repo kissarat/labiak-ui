@@ -43,15 +43,18 @@ create table "CurrencyHistory" (
   "at" timestamp not null default current_timestamp
 );
 
+-- create type "ParamType" as enum ('boolean', 'integer', 'decimal', 'choice', 'string');
+
 create table "Param" (
   "paramId" bigserial primary key,
-  "name" varchar(200) not null
+  -- "type" "ParamType" not null default 'string',
+  "name" varchar(200) not null,
 );
 
-create table "ParamValue" (
-  "paramValueId" bigserial primary key,
+create table "Option" (
+  "optionId" bigserial primary key,
   "paramId" bigint null references "Param"("paramId"),
-  "name" varchar(200) not null
+  "value" varchar(200) not null
 );
 
 -- create table "Shop" (
@@ -81,8 +84,8 @@ insert into "Offer"("name", "currencyId", "price")
 create table "OfferParam" (
   "offerId" bigint not null,
   "paramId" bigint not null,
-  "paramValueId" bigint,
-  "value" text,
+  -- "optionId" bigint references "Option"("optionId"),
+  "value" varchar(200),
   "at" timestamp not null default current_timestamp
 );
 

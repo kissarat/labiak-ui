@@ -17,6 +17,7 @@ class OfferService extends Service {
   }
 
   update(offerId, params) {
+    params.updatedAt = new Date();
     return this.table('Offer', (q) =>
       q.where({ offerId }).update(params).returning('*')
     );
