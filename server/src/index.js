@@ -1,6 +1,7 @@
 const fastify = require('fastify');
 const bodyParder = require('body-parser');
 const router = require('./routes/index.js');
+const { createServiceResolver } = require('./services/service-resolver');
 const qs = require('querystring');
 // import websocket from './middleware/websocket';
 const app = fastify({
@@ -14,6 +15,7 @@ app.use(function (req, res, next) {
     res.setHeader('access-control-allow-origin', 'http://localhost:4200');
     res.setHeader('access-control-allow-methods', 'PUT,POST,DELETE,OPTIONS');
     res.setHeader('access-control-allow-headers', 'content-type');
+    req.services = createServiceResolver();
     next();
   } catch (err) {
     console.error(err);
