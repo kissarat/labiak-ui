@@ -8,10 +8,19 @@ const app = fastify({
 });
 
 app.use(function (req, res, next) {
-  const parts = req.url.split('?');
-  req.query = parts[1] ? qs.parse(parts[1]) : {};
-  res.setHeader('access-control-allow-origin', 'http://localhost:4200');
-  next();
+  try {
+    const parts = req.url.split('?');
+    req.query = parts[1] ? qs.parse(parts[1]) : {};
+    res.setHeader('access-control-allow-origin', 'http://localhost:4200');
+    res.setHeader('access-control-allow-methods', 'PUT,POST,DELETE,OPTIONS');
+    res.setHeader('access-control-allow-headers', 'content-type');
+    next();
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ message: err.message });
+  }
 });
 
 app.use(bodyParder.json());

@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Success } from 'src/app/interfaces/success';
 import { Observable } from 'rxjs';
-import { OfferCriteria } from 'src/app/interfaces/offer/offer.criteria';
 
 export abstract class RepositoryService<Model> {
   get origin(): string {
@@ -24,11 +23,11 @@ export abstract class RepositoryService<Model> {
   }
 
   create(data: Model) {
-    return this.http.post(this.prefix, data);
+    return this.http.post<Success<Model>>(this.prefix, data);
   }
 
   update(id: number, data: object) {
-    return this.http.put(`${this.prefix}/${id}`, data);
+    return this.http.put<Success<Model>>(`${this.prefix}/${id}`, data);
   }
 
   delete(id: number) {

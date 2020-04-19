@@ -1,8 +1,9 @@
 <article>
   <h1>Список товаров</h1>
+  <a [routerLink]="['/', 'offer']">Добавить товар</a>
   <ul>
-    <li>
-      <a [routerLink]="['/', 'offer', offer.offerId]" *ngFor="let offer of offers">
+    <li *ngFor="let offer of offers">
+      <a [routerLink]="['/', 'offer', offer.offerId]">
         {{ offer.name }}
       </a>
     </li>

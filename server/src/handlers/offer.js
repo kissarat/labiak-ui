@@ -11,18 +11,24 @@ module.exports = {
   },
 
   async create(req, res) {
-    await db.table('Offer')
-      .insert(data);
+    const data = {
+      ...req.body,
+      currencyId: 'UAH'
+    }
+    const offer = await db.table('Offer')
+      .insert(data)
+      .returning('*');
     res
-      .status(201)
-      .json({ ok: 1 });
+      // .status(201)
+      .json(new Success(offer));
   },
 
   async update(req, res) {
-    await db.table('Offer')
-      .where({ offerId: req.offerId })
-      .update(data);
-    res.json({ ok: 1 });
+    const offer = await db.table('Offer')
+      .where({ offerId: req.params.offerId })
+      .update(req.body)
+      .returning('*');
+    res.json(new Success(offer));
   },
 
   async delete(req, res) {
