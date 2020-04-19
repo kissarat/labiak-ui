@@ -31,7 +31,8 @@ export class OfferEditComponent implements OnInit {
     this.form.setValue({
       name: offer.name,
       description: offer.description,
-      price: offer.price
+      price: offer.price,
+      quantity: offer.quantity
     });
   }
 
@@ -39,7 +40,8 @@ export class OfferEditComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: '',
       description: '',
-      price: '0'
+      price: '0',
+      quantity: '1'
     });
 
     this.fetch
